@@ -28,7 +28,10 @@ export default function UserTimeZone({ tz, changeTZ }) {
                   className="p-1 text-base border border-black rounded-sm"
                   id="tz"
                   value={tz}
-                  onChange={(e) => changeTZ(e)}
+                  onChange={(e) => {
+                    changeTZ(e)
+                    close();
+                  }}
                   name="tz"
                 >
                   {optionElems}                
