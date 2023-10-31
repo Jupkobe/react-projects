@@ -1,33 +1,30 @@
 import { useState } from 'react'
 
 export default function Input({ todoList, addNewTodo }) {
-  const [todo, setTodo] = useState({
-    id: 0,
-    completed: false,
-    title: "",
-  }); 
+  const [title, setTitle] = useState(""); 
 
   const newID = todoList.length > 0 ? (todoList[todoList.length - 1].id + 1) : 1;
 
   function handleChange(e) {
     const {value} = e.target;
-    setTodo(prevTodo => ({
-      ...prevTodo,
-      title: value,
-      id: newID,
-    }));    
+    setTitle(value);    
   }
 
   function handleSubmit(e) {
+    const newTodo = {
+      id: newID,
+      completed: false,
+      title: title,
+    }
     e.preventDefault();
-    if (!todo.title) return;
-    addNewTodo(todo);
+    if (!title) return;
+    addNewTodo(newTodo);
   }
 
   return (
     <div id="inputs" className="w-full flex justify-center pb-4 mb-2 border-b border-b-black">
         <form onSubmit={handleSubmit} className="w-full flex justify-between gap-1">
-            <input onChange={handleChange} type="text" value={todo.title} className="border border-black rounded-md py-1 px-2 w-full" />
+            <input onChange={handleChange} type="text" value={title} className="border border-black rounded-md py-1 px-2 w-full" />
             <button className="border border-black rounded-md py-1 px-2">Submit</button>
         </form>
     </div>

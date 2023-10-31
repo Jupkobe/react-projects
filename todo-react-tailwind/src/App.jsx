@@ -4,13 +4,13 @@ import TodoList from './components/TodoList'
 
 
 export default function App() {
-  const localTodos = JSON.parse(localStorage.getItem("todos"));
-  const [todoList, setTodoList] = useState(localTodos);
+  const [todoList, setTodoList] = useState(() => {
+    return JSON.parse(localStorage.getItem("todos")) || []
+  });
 
   useEffect(() => {
-    if (todoList.length > 0) localStorage.setItem("todos", JSON.stringify(todoList))
-    // setTodoList(todoList.sort((c1, c2) => (c1.completed < c2.completed) ? 1 : 0));
-  }, [todoList]);
+    localStorage.setItem("todos", JSON.stringify(todoList));
+  }, [todoList])
 
 
   function addNewTodo(todo) {
@@ -24,16 +24,17 @@ export default function App() {
     const newTodos = [];
     todoList.forEach(todo => {
       if (todo.id !== todoID) newTodos.push(todo);
-    })
+    });
     setTodoList(newTodos);
   };
 
 
   function toggleTodo(todoID) {
-    setTodoList(prevTodoList => (prevTodoList.map((todo => {
+    setTodoList(prevTodoList => 
+      (prevTodoList.map((todo => {
         return todo.id === todoID ? {...todo, completed: !todo.completed} : todo;
       }))
-    ))
+    ));
   };
 
 
