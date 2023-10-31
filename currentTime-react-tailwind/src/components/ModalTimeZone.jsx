@@ -1,22 +1,11 @@
 import { useState, useEffect } from 'react'
 import MicroModal from 'react-micro-modal';
-import ModalTimeZone from './ModalTimeZone';
 
-export default function UserTimeZone({ tz, changeTZ }) {
-  const [timeZones, setTimeZones] = useState([]);
-  
-  useEffect(() => {
-    fetch("https://worldtimeapi.org/api/timezone")
-      .then(res => res.json())
-      .then(data => setTimeZones(data))
-  }, []);
+export default function ModalTimeZone({ tz, changeTZ }) {
+  const optionElems = timeZones.map((zone, index) => <option key={index} value={zone}>{zone}</option>)
   
   return (
-    <> 
-    <button onClick={openModal} className="text-gray-700 opacity-50 hover:opacity-100 font-medium">{tz}</button>
-    </>
-    // ADD DIALOG MODAL
-
+    <></>
     // <MicroModal disableFirstElementFocus trigger={(open) => <h4 onClick={open} className="cursor-pointer text-gray-700 opacity-40 hover:opacity-100 font-medium">{tz}</h4>}>
     //   {
     //     (close) => (
