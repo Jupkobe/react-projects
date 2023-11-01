@@ -1,24 +1,28 @@
 import { useState } from 'react'
 
 export default function Input({ todoList, addNewTodo }) {
-  const [title, setTitle] = useState(""); 
-
-  const newID = todoList.length > 0 ? (todoList[todoList.length - 1].id + 1) : 1;
+  const [title, setTitle] = useState(() => ""); 
 
   function handleChange(e) {
     const {value} = e.target;
-    setTitle(value);    
+    setTitle(value);
   }
 
   function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!title) return;
+
+    const newID = todoList.length > 0 ? (todoList[todoList.length - 1].id + 1) : 1;
+
     const newTodo = {
       id: newID,
       completed: false,
-      title: title,
+      title,
     }
-    e.preventDefault();
-    if (!title) return;
+    
     addNewTodo(newTodo);
+    setTitle("");
   }
 
   return (

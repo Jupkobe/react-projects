@@ -7,9 +7,7 @@ export default function TodoList({ todoList, deleteTodo, toggleTodo }) {
 
     
     useEffect(() => {
-        parentElem.current && autoAnimate(parentElem.current, {
-            duration: 150,
-        })
+        parentElem.current && autoAnimate(parentElem.current, {duration: 150})
     }, [parentElem]);
 
     const todoElems = [];
