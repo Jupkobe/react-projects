@@ -4,14 +4,11 @@ import TodoList from './components/TodoList'
 
 
 export default function App() {
-  const [todoList, setTodoList] = useState(() => {
-    return JSON.parse(localStorage.getItem("todos")) || []
-  });
+  const [todoList, setTodoList] = useState(() => JSON.parse(localStorage.getItem("todos")) || []);
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todoList));
   }, [todoList])
-
 
   function addNewTodo(todo) {
     setTodoList(prevTodoList => ([
@@ -36,7 +33,6 @@ export default function App() {
       }))
     ));
   };
-
 
   return (
     <>
