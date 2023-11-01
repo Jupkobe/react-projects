@@ -24,7 +24,7 @@ export default function TodoList({ todoList, deleteTodo, toggleTodo }) {
             className={todo.completed ? "todo completed" : "todo"}>
                 <p>{todo.title}</p>
                 <button
-                    onClick={() => deleteTodo(todo.id)}
+                    onClick={(e) => deleteTodo(e, todo.id)}
                     className="bg-transparent text-2xl border-0 before:content-['\2715']">
                 </button>
         </div>

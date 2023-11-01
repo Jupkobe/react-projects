@@ -17,12 +17,12 @@ export default function App() {
     ]));
   }
 
-  function deleteTodo(todoID) {
-    const newTodos = [];
-    todoList.forEach(todo => {
-      if (todo.id !== todoID) newTodos.push(todo);
-    });
-    setTodoList(newTodos);
+  function deleteTodo(e, todoID) {
+    if (e.target.tagName !== "BUTTON") return;
+    setTodoList(prevList => (
+      prevList.filter(todo => todo.id !== todoID)
+      )
+    );
   };
 
 
