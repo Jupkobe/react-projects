@@ -13,7 +13,6 @@ export default function App() {
 
     if (isAllSame && isAllHeld) {
       setTenzies(true);
-      console.log("You won!");
     }
   }, dice);
 
@@ -69,10 +68,10 @@ export default function App() {
   return (
     <div className='bg-slate-800 p-4 h-screen flex items-center justify-center'>
       {tenzies && <Confetti />}
-      <main className='bg-gray-200 min-h-[50%] min-w-[25%] rounded-md flex flex-col items-center justify-center px-8'>
-        <h2 className='text-4xl font-semibold m-2'>Tenzies</h2>
-        <p className='text-gray-600'>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
-        <div className='grid grid-cols-5 grid-rows-2 p-4 w-full h-1/3 gap-y-2 gap-x-1 sm:gap-4'>
+      <main className='bg-gray-200 min-h-[50%] max-w-sm rounded-md flex flex-col items-center justify-center px-4'>
+        <h2 className='text-4xl font-semibold m-4'>Tenzies</h2>
+        <p className='text-gray-600 w-11/12 mb-2'>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+        <div className='grid grid-cols-5 grid-rows-2 p-4 gap-2 sm:gap-4'>
           {dieElems}
         </div>
         <button 
