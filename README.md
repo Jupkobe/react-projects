@@ -14,3 +14,11 @@ Time zones can be changed with the button next to the current time zone. Zones a
 
 
 You can try this on https://jupkobe-time.vercel.app
+
+### Tenzies
+
+Tenzies is a game where you roll ten dice and try to match them all as fast as you can. You can click on a die to freeze it. 
+
+![image](https://github.com/Jupkobe/react-projects/assets/84783072/d8b69d26-e258-45e3-bccc-3fc9a51ef448)
+
+You can try on https://jupkobe-tenzies.vercel.app/
