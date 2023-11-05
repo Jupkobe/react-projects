@@ -7,7 +7,7 @@ export default function Die({ id, value, isHeld, hold }) {
     <div 
       onClick={() => hold(id)} 
       style={styles}
-      className='w-10 h-10 sm:w-14 sm:h-14 shadow rounded flex items-center justify-center font-sans text-2xl font-bold'
+      className='w-14 h-14 shadow rounded flex items-center justify-center font-sans text-2xl font-bold'
     >
       {value}
     </div>
