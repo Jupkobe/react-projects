@@ -1,53 +1,49 @@
-import { useState } from "react";
 import { checkDiagonal, checkVertical, checkHorizontal, checkDraw } from "./checkFuncs";
 
 
-export default function GameBoard({ id, onPlay, player, isPlayable, recordWinner }) {
-    const [board, setBoard] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0]);
-
+export default function GameBoard({ id, onPlay, player, game, isPlayable }) {
+    const board = game;
+    
     function handleClick(e, index) {
         e.stopPropagation();
         if (!isPlayable) return;
-        else if (board[index] !== 0) return;
-
-        playMove(index);
-        isOver();
+        else if (board[index] !== null) return;
+        
+        board[index] = player;
+        
+        const result = {
+            id,
+            winner: isOver(),
+            game: board,
+        }
     
-        onPlay(index);
-    };
-
-    function playMove(index) {
-        setBoard(prevBoard => {
-            prevBoard[index] = player;
-            return prevBoard;
-        });
+        onPlay(id, result, index);
     };
 
     function isOver() {        
         if (checkHorizontal(board) || checkVertical(board) || checkDiagonal(board)) {
-            recordWinner(id, player);
+            return player;
         }
         else if (checkDraw(board)) {
-            recordWinner(id, "D");
+            return "D";
+        }
+        else {
+            return null;
         }
     }
-
-    const boardStyles = {backgroundColor: isPlayable ? "#131780" : "#0b0d40"}
-    const buttonStyles = {backgroundColor: isPlayable ? "white" : "lightgray"}
 
     const buttonElems = board.map((value, index) => (
         <div
             key={index}
             onClick={(e) => handleClick(e, index)}
-            className='flex items-center justify-center w-full text-3xl font-bold rounded-sm aspect-square'
-            style={buttonStyles}
+            className={`flex items-center justify-center w-full text-2xl sm:text-3xl text-[#0b0d40] font-bold rounded-sm aspect-square animation ${isPlayable ? "bg-white" : "bg-gray-300"}`}
         >
-            {value === 0 ? "" : value}
+            {value}
         </div>
     ))
 
     return (
-        <div style={boardStyles} className='grid w-full grid-cols-3 gap-1 p-1 rounded-md aspect-square'>
+        <div className={`grid w-full grid-cols-3 gap-1 p-1 rounded-md aspect-square animation ${isPlayable ? "bg-[#131780]" : "bg-[#0b0d40]"}`}>
             {buttonElems}
         </div>
     )

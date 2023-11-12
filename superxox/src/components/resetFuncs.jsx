@@ -1,7 +1,13 @@
+import { nanoid } from "nanoid";
+
 export function generateEmptyBoardArray() {
     const emptyBoard = [];
     for (let i = 0; i < 9; i++) {
-      emptyBoard.push(0);
+      emptyBoard.push({
+        id: i,
+        winner: null,
+        game: [null, null, null, null, null, null, null, null, null]
+      });
     }
     return emptyBoard;
 }
