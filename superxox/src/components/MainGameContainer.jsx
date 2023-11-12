@@ -2,9 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { checkDiagonal, checkVertical, checkHorizontal } from "./checkFuncs";
 import { generateBoardIdArray, generateEmptyBoardArray} from './resetFuncs';
 import GameBoard from './GameBoard';
+import Confetti from './Confetti';
 
 // {
-//   id: nanoid(),
+//   id: i,
 //   winner: null,
 //   game: [null, null, null, null, null, null, null, null, null]
 //  [O, D, X,
@@ -135,6 +136,7 @@ export default function MainGameContainer() {
   
   return (
     <>
+      {winner && <Confetti />}
       <main className='flex flex-col items-center justify-center w-full min-h-screen p-1'>
         <h2 className='mb-6 text-5xl font-bold text-[#0b0d40]'>{player}'s Turn</h2>
         <section className='w-full sm:w-[37.75rem] sm:h-[37.75rem] p-1 sm:p-3 sm:justify-center sm:items-center bg-[#5068AB] rounded-md'>
