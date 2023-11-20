@@ -100,6 +100,7 @@ export default function MainGameContainer() {
     modal.current.close();
   };
 
+  // Debug purposes only
   // function makeitdraw() {
   //   const emptyBoard = [];
   //   for (let i = 0; i < 7; i++) {
@@ -123,28 +124,29 @@ export default function MainGameContainer() {
   //   setLastPlay([-1, -1])
   // }
   
-  const gameBoardElems = mainGame.map(item => (
+  const gameBoardElems = mainGame.map(item => {
+    return (
     <GameBoard 
       key={item.id}
       id={item.id}
       game={item.game}
+      winner={item.winner}
       player={player}
       isPlayable={nextPlayArray.includes(item.id)}
       onPlay={onPlay}
-    />
-  ));
+    />)
+  });
   
   return (
     <>
       {winner && <Confetti />}
-      <main className='flex flex-col items-center justify-center w-full min-h-screen p-1'>
+      <main className='flex flex-col items-center justify-center w-full min-h-screen p-3'>
         <h2 className='mb-6 text-5xl font-bold text-[#0b0d40]'>{player}'s Turn</h2>
         <section className='w-full sm:w-[37.75rem] sm:h-[37.75rem] p-1 sm:p-3 sm:justify-center sm:items-center bg-[#5068AB] rounded-md'>
           <div className='grid grid-cols-3 gap-1 sm:gap-2 aspect-square'>
             {gameBoardElems}
           </div>
         </section>
-        <a href='https://www.youtube.com/shorts/_Na3a1ZrX7c' target="_blank" className='absolute text-lg font-bold underline bottom-4'>How to play?</a>
       </main>
       <dialog ref={modal}>
         <div className="flex flex-col items-center justify-center p-4 border border-black rounded w-80">
