@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.animation {
+  @apply transition duration-700 ease-in-out;
+}
+
+.pomodoro {
+  @apply bg-[#485586];
+}
+
+.break {
+  @apply bg-[#147e6c];
+}
+
+.focus {
+  @apply brightness-75;
+}
