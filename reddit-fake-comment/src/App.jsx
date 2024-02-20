@@ -45,7 +45,7 @@ export default function App() {
             id="capture"
             className="mt-2 text-[#d7dadc] font-opensans bg-[#1a1a1b] p-3 flex flex-col min-w-60 gap-1 max-w-full pl-[3rem]"
           >
-            <div className="flex items-center gap-2 -mb-4 -ml-10">
+            <div className="flex items-center gap-2 -mb-2 -ml-10">
               <UserPicture />
               <p className="mb-3 text-lg font-semibold">reddit.turk</p>
             </div>
