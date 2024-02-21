@@ -65,7 +65,9 @@ export default function App() {
             <div className="text-[#999a9f]">
               <UpperPart />
             </div>
-            <p className="mb-1 ml-4 -mt-2 ">{comment}</p>
+            <p className="pr-2 mb-1 ml-4 -mt-2 whitespace-pre-wrap">
+              {comment}
+            </p>
             <div className="flex justify-end w-full">
               <div className="relative text-[#8C8C8C] text-[1.05rem]">
                 <BottomPart like={like} />
