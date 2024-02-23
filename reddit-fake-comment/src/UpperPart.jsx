@@ -1,4 +1,4 @@
-export default function UpperPart() {
+export default function UpperPart({ username }) {
   const colorlist = [
     "ff99aa",
     "ffb470",
@@ -35,7 +35,7 @@ export default function UpperPart() {
         </g>
       </svg>
 
-      <p className="mb-3 ml-3 text-sm font-semibold">reddit.turk</p>
+      <p className="mb-3 ml-3 text-sm font-semibold">{username}</p>
     </div>
   );
 }

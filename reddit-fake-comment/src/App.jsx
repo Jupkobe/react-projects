@@ -6,6 +6,7 @@ import BottomPart from "./BottomPart";
 export default function App() {
   const [comment, setComment] = useState("");
   const [like, setLike] = useState("1.5");
+  const [username, setUsername] = useState("reddit.turk");
 
   return (
     <>
@@ -32,6 +33,15 @@ export default function App() {
                 }}
                 type="text"
                 value={like}
+              />
+              <input
+                className="w-full p-1 border border-black rounded"
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
+                type="text"
+                placeholder="USERNAME"
+                value={username}
               />
               <button
                 className="h-8 p-1 bg-white border border-black rounded"
@@ -63,7 +73,7 @@ export default function App() {
           >
             {/* <img src="/aaa.png" /> */}
             <div className="text-[#999a9f]">
-              <UpperPart />
+              <UpperPart username={username} />
             </div>
             <p className="pr-2 mb-1 ml-4 -mt-2 whitespace-pre-wrap">
               {comment}
