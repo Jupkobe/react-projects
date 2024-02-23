@@ -1,4 +1,4 @@
-export default function UpperPart({ username }) {
+export default function UpperPart({ username, isOn }) {
   const colorlist = [
     "ff99aa",
     "ffb470",
@@ -17,7 +17,9 @@ export default function UpperPart({ username }) {
         height="320"
         viewBox="0 0 320 320"
         xmlns="http://www.w3.org/2000/svg"
-        className="rounded-full w-9 h-9"
+        className={
+          isOn ? "rounded-full w-9 h-9" : "rounded-full w-9 h-9 hidden"
+        }
       >
         <g>
           <path

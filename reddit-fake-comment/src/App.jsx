@@ -7,6 +7,7 @@ export default function App() {
   const [comment, setComment] = useState("");
   const [like, setLike] = useState("1.5");
   const [username, setUsername] = useState("reddit.turk");
+  const [isOn, setIsOn] = useState(true);
 
   return (
     <>
@@ -43,6 +44,19 @@ export default function App() {
                 placeholder="USERNAME"
                 value={username}
               />
+              <div className="flex gap-2">
+                <input
+                  id="logo"
+                  className="border border-black rounded"
+                  onChange={() => {
+                    setIsOn((prevOn) => !prevOn);
+                  }}
+                  type="checkbox"
+                  checked={isOn}
+                />
+                <label htmlFor="logo">Logo</label>
+              </div>
+
               <button
                 className="h-8 p-1 bg-white border border-black rounded"
                 onClick={() => {
@@ -73,7 +87,7 @@ export default function App() {
           >
             {/* <img src="/aaa.png" /> */}
             <div className="text-[#999a9f]">
-              <UpperPart username={username} />
+              <UpperPart username={username} isOn={isOn} />
             </div>
             <p className="pr-2 mb-1 ml-4 -mt-2 whitespace-pre-wrap">
               {comment}
