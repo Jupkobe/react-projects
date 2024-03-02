@@ -18,8 +18,8 @@ export default function App() {
 
   return (
     <>
-      <div className="w-full h-screen flex justify-center items-center p-4">
-        <div id="app" className="bg-gray-100 w-full h-4/5 flex flex-col justify-between items-center border border-black rounded-md p-4 sm:w-3/5 font-sans">
+      <div className="flex items-center justify-center w-full h-screen p-4">
+        <div id="app" className="flex flex-col items-center justify-between w-full p-4 font-sans bg-gray-100 border border-black rounded-md h-4/5 sm:w-3/5">
           <h1 className="text-5xl font-semibold">Current Time</h1>
           <div id="date-and-time" className="flex flex-col items-end">
             <UserTimeZone
